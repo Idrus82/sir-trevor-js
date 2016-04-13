@@ -18,7 +18,7 @@ var EventBus = require('./event-bus');
 var FormEvents = require('./form-events');
 var BlockControls = require('./block-controls');
 var BlockAddition = require('./block-addition');
-var BlockAdditionTop = require('./block-addition-top');
+// var BlockAdditionTop = require('./block-addition-top');
 var BlockManager = require('./block-manager');
 var FormatBar = require('./format-bar');
 var EditorStore = require('./extensions/editor-store');
@@ -78,7 +78,7 @@ Object.assign(Editor.prototype, require('./function-bind'), require('./events'),
 
     this.blockManager = new BlockManager(this);
     this.blockAddition = BlockAddition.create(this);
-    this.BlockAdditionTop = BlockAdditionTop.create(this);
+    // this.BlockAdditionTop = BlockAdditionTop.create(this);
     this.blockControls = BlockControls.create(this);
 
     this.formatBar = new FormatBar(this.options.formatBar, this.mediator, this);
@@ -283,8 +283,8 @@ Object.assign(Editor.prototype, require('./function-bind'), require('./events'),
     this.form = Dom.getClosest(this.el, 'form');
 
     var outer = Dom.createElement("div", {
-                  'id': this.ID, 
-                  'class': 'st-outer notranslate', 
+                  'id': this.ID,
+                  'class': 'st-outer notranslate',
                   'dropzone': 'copy link move'});
 
     var wrapper = Dom.createElement("div", {'class': 'st-blocks'});

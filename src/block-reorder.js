@@ -22,14 +22,11 @@ Object.assign(BlockReorder.prototype, require('./function-bind'), require('./ren
 
   bound: ['onMouseDown', 'onDragStart', 'onDragEnd', 'onDrop'],
 
-  className: 'st-block-ui-btn__reorder',
+  className: 'st-block-ui-btn__reorder st-block__button st-block__button--reorder',
   tagName: 'a',
 
   attributes: function() {
     return {
-      'html': `<svg role="img" class="st-icon">
-                 <use xlink:href="${config.defaults.iconUrl}#move"/>
-               </svg>`,
       'draggable': 'true',
       'data-icon': 'move'
     };

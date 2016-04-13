@@ -22,3 +22,99 @@
 
 // Format Bar
 @import 'format-bar';
+
+// button
+.st-block__button
+{
+    // display: inline-block;
+    cursor: pointer;
+    transform: translate(0px, 0px);
+    text-align: center;
+
+    color: #fff;
+    border: 1px solid transparent;
+    background-color: #808080;
+    &:before
+    {
+        font-family: 'FontAwesome';
+        font-size: 18px;
+        font-weight: normal;
+        font-style: normal;
+        font-variant: normal;
+        font-size-adjust: none;
+        font-stretch: normal;
+        line-height: 24px;
+
+        display: block;
+
+        box-sizing: border-box;
+        width: 36px;
+        height: 36px;
+        padding: 5px;
+
+        font-feature-settings: normal;
+        font-kerning: auto;
+        font-language-override: normal;
+        font-synthesis: weight style;
+        text-rendering: auto;
+    }
+    &:hover,
+    &:focus
+    {
+        color: #808080;
+        border-color: #808080;
+        background-color: #fff;
+    }
+    // &:before
+    // {
+    //     line-height: 24px;
+    // }
+    &--add:before
+    {
+        content: '\f067';
+    }
+    &--delete:before
+    {
+        content: '\f1f8';
+    }
+    &--arrows:before,
+    &--reorder:before
+    {
+        content: '\f047';
+    }
+    &--replace:before
+    {
+        content: '\f0ec';
+        .st-block--controls-active &
+        {
+            content: '\f00d';
+        }
+    }
+    &--list:before
+    {
+        content: '\f03a';
+    }
+    &--image:before
+    {
+        content: '\f03e';
+    }
+    &--video:before
+    {
+        content: '\f03d';
+    }
+    &--tweet:before
+    {
+        content: '\f099';
+    }
+}
+.st-block-replacer,
+.st-block-addition,
+.st-block__ui
+{
+    float: right;
+    .st-block:hover &,
+    .st-block:focus &
+    {
+        display: inline-block;
+    }
+}

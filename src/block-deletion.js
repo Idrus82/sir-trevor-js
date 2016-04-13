@@ -10,14 +10,7 @@ var BlockDeletion = function() {
 Object.assign(BlockDeletion.prototype, require('./function-bind'), require('./renderable'), {
 
   tagName: 'a',
-  className: 'st-block-ui-btn__delete',
-
-  attributes: {
-    html: () => `<svg role="img" class="st-icon">
-                   <use xlink:href="${config.defaults.iconUrl}#cross"/>
-                 </svg>`,
-    'data-icon': 'close'
-  }
+  className: 'st-block-ui-btn__delete st-block__button st-block__button--delete'
 
 });
 

@@ -4,12 +4,7 @@ var config = require('../config');
 
 module.exports = () => {
   return `
-    <button class="st-block-replacer" type="button">
-      <span class="st-block-replacer__button">
-        <svg role="img" class="st-icon">
-          <use xlink:href="${config.defaults.iconUrl}#add-block"/>
-        </svg>
-      </span>
+    <button class="st-block-replacer st-block__button st-block__button--replace" type="button">
     </button>
   `;
 };
