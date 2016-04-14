@@ -48,7 +48,7 @@ module.exports.create = function(SirTrevor) {
   function insert(e) {
     e.stopPropagation(); // we don't want el to be removed by the window click
     /*jshint validthis:true */
-    var parent = this.parentNode;
+    var parent = this.parentNode.parentNode;; // adding parentNode
     if (!parent || hide() === parent) { return; }
     parent.appendChild(el);
     parent.classList.toggle("st-block--controls-active");
@@ -56,7 +56,8 @@ module.exports.create = function(SirTrevor) {
 
   // Public
   function hide() {
-    var parent = el.parentNode;
+    var parent = el.parentNode; // adding parentNode;
+    debugger;
     if (!parent) { return; }
     parent.removeChild(el);
     parent.classList.remove("st-block--controls-active");
@@ -71,6 +72,10 @@ module.exports.create = function(SirTrevor) {
 
   Events.delegate(
     SirTrevor.wrapper, ".st-block-replacer", "click", insert
+  );
+
+  Events.delegate(
+    SirTrevor.wrapper, ".st-block-controls", "onmouseout", hide
   );
 
   Events.delegate(

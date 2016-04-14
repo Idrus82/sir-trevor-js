@@ -16,6 +16,11 @@ var BlockDeletion = require('./block-deletion');
 var BlockPositioner = require('./block-positioner');
 var EventBus = require('./event-bus');
 
+//moving addition button
+const ADD_TEMPLATE = require("./templates/block-addition");
+//moving addition reorder button
+const REPLACER_TEMPLATE = require("./templates/block-replacer");
+
 var Spinner = require('spin.js');
 
 const DELETE_TEMPLATE = require("./templates/delete");
@@ -91,7 +96,7 @@ Object.assign(Block.prototype, SimpleBlock.fn, require('./block-validations'), {
     this._setBlockInner();
 
     this.editor = this.inner.children[0];
-    
+
     this.mixinsRequireInputs = false;
     this.availableMixins.forEach(function(mixin) {
       if (this[mixin]) {
@@ -228,7 +233,7 @@ Object.assign(Block.prototype, SimpleBlock.fn, require('./block-validations'), {
     this.mediator.trigger('block:remove', this.blockID, {focusOnPrevious: true});
   },
 
-  // REFACTOR: have one set of delete controls that moves around like the 
+  // REFACTOR: have one set of delete controls that moves around like the
   // block controls?
   addDeleteControls: function(){
 
@@ -295,16 +300,18 @@ Object.assign(Block.prototype, SimpleBlock.fn, require('./block-validations'), {
   _initUIComponents: function() {
 
     this.addDeleteControls();
+    this._withUIComponent(new BlockDeletion(), '.st-block-ui-btn__delete',
+                          this.onDeleteClick);
+
+    this.ui.insertAdjacentHTML("beforeend", ADD_TEMPLATE);
 
     var positioner = new BlockPositioner(this.el, this.mediator);
-
     this._withUIComponent(positioner, '.st-block-ui-btn__reorder',
                           positioner.toggle);
 
     this._withUIComponent(new BlockReorder(this.el, this.mediator));
 
-    this._withUIComponent(new BlockDeletion(), '.st-block-ui-btn__delete',
-                          this.onDeleteClick);
+    this.ui.insertAdjacentHTML("beforeend", REPLACER_TEMPLATE);
 
     this.onFocus();
     this.onBlur();

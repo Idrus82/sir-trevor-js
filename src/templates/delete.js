@@ -3,11 +3,11 @@ module.exports = `
     <label class="st-block__delete-label">
       ${i18n.t('general:delete')}
     </label>
-    <button class='st-block-ui__confirm js-st-block-confirm-delete' type="button">
+    <a class='st-block-ui__confirm js-st-block-confirm-delete'>
       ${i18n.t('general:yes')}
-    </button>
-    <button class='st-block-ui__confirm js-st-block-deny-delete' type="button">
+    </a>
+    <a class='st-block-ui__confirm js-st-block-deny-delete'>
       ${i18n.t('general:no')}
-    </button>
+    </a>
   </div>
 `;
